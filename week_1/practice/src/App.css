@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.todo-list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.todo-list-container li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
