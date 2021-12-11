@@ -18,9 +18,9 @@ export default class TodoItem extends React.Component {
         <header>
           <div className='header-text-container'>
             {!completed ? (
-              <aside>
+              <span className='todo-icon'>
                 <PriorityComponent priority={priority} />
-              </aside>
+              </span>
             ) : (
               <span className='todo-icon'>✅</span>
             )}

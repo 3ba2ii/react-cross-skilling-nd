@@ -40,6 +40,7 @@ class AddTodoForm extends React.Component {
           value={this.state.text}
           onChange={this.handleTextChange}
           placeholder='Finish project before 27 DEC'
+          required
         />
         {/* Select Tag */}
         <SelectComponent
