@@ -2,7 +2,6 @@ import React from 'react';
 
 class TodoItem extends React.Component {
   render() {
-    console.log(this.props.todo);
     const { id, text, completed } = this.props.todo;
     return (
       <li>

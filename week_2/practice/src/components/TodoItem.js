@@ -36,7 +36,6 @@ export default class TodoItem extends React.Component {
             >
               {text}
             </h2>
-            )
           </div>
           <button
             className='btn remove-btn'
