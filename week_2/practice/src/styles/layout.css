@@ -1,0 +1,60 @@
+.main-layout {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+}
+.side-navbar-section {
+  grid-column: 1/2;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem 5rem 3rem 3rem;
+  position: relative;
+}
+.side-navbar-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100vh;
+  background: var(--gray-200);
+}
+
+.navbar-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.navbar-container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 2rem;
+}
+.navbar-container li a {
+  color: var(--gray-600);
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  font-weight: 400;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+.navbar-container li a:hover {
+  color: var(--gray-800);
+}
+
+.main-content {
+  background: red;
+  display: grid;
+  place-content: center;
+}
