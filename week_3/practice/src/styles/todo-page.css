@@ -1,0 +1,9 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.page-header-container h1 {
+  color: var(--gray-700);
+  font-size: clamp(2rem, 2rem + 1vmin, 3rem);
+}
