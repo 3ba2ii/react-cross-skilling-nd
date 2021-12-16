@@ -36,6 +36,29 @@ export default class TodoPage extends Component {
     });
   };
 
+  handleChangePriority = (id, priority) => {
+    const newTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        todo.priority = priority;
+      }
+      return todo;
+    });
+    this.setState({
+      todos: newTodos,
+    });
+  };
+
+  handleChangeTodoTitle = (id, title) => {
+    const newTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        todo.text = title;
+      }
+      return todo;
+    });
+    this.setState({
+      todos: newTodos,
+    });
+  };
   handleDeleteTodo = (id) => {
     const newTodos = this.state.todos.filter((todo) => todo.id !== id);
     this.setState({ todos: newTodos });
@@ -76,6 +99,8 @@ export default class TodoPage extends Component {
             toggleTodo: this.toggleTodo,
             handleDeleteTodo: this.handleDeleteTodo,
             handleAddTodo: this.handleAddTodo,
+            handleChangePriority: this.handleChangePriority,
+            handleChangeTodoTitle: this.handleChangeTodoTitle,
           }}
         />
       </section>
