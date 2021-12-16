@@ -24,11 +24,6 @@ import './styles/layout.css';
       c. Convert the whole project to use React Hooks 🪝
 */
 
-/* 
-  Homework for Week 2 
-    1. Add a button to show only completed todos 
-*/
-
 function App() {
   return (
     <main className='App main-layout'>
