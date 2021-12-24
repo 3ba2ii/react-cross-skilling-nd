@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class PriorityComponent extends Component {
-  displayPriorityIcon = () => {
-    const { priority } = this.props;
+const PriorityComponent = ({ priority }) => {
+  const displayPriorityIcon = () => {
     if (priority === 'HIGH') {
       return <span className='todo-icon icon-high'>🔴</span>;
     } else if (priority === 'MEDIUM') {
@@ -14,8 +13,7 @@ export default class PriorityComponent extends Component {
     }
     return null;
   };
+  return displayPriorityIcon();
+};
 
-  render() {
-    return this.displayPriorityIcon();
-  }
-}
+export default PriorityComponent;

@@ -1,109 +1,87 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddTodoForm from '../components/AddTodoForm';
 import TodoList from '../components/TodoList';
 import Priority from '../constants/priority';
 import '../styles/todo-page.css';
 
-export default class TodoPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [],
-    };
-  }
-  handleAddTodo = (text, priority) => {
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          id: Date.now().toString(),
-          text,
-          priority,
-          completed: false,
-        },
-      ],
-    });
+const TodoPage = () => {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = (text, priority) => {
+    setTodos([
+      ...todos,
+      {
+        id: Date.now().toString(),
+        text,
+        priority,
+        completed: false,
+      },
+    ]);
   };
-  toggleTodo = (id) => {
-    const newTodos = this.state.todos.map((todo) => {
+  const toggleTodo = (id) => {
+    const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
       return todo;
     });
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
 
-  handleChangePriority = (id, priority) => {
-    const newTodos = this.state.todos.map((todo) => {
+  const handleChangePriority = (id, priority) => {
+    const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.priority = priority;
       }
       return todo;
     });
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
 
-  handleChangeTodoTitle = (id, title) => {
-    const newTodos = this.state.todos.map((todo) => {
+  const handleChangeTodoTitle = (id, title) => {
+    const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.text = title;
       }
       return todo;
     });
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
-  handleDeleteTodo = (id) => {
-    const newTodos = this.state.todos.filter((todo) => todo.id !== id);
-    this.setState({ todos: newTodos });
+  const handleDeleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
   };
 
-  addMockData = () => {
+  const addMockData = () => {
     setTimeout(() => {
-      this.setState({
-        todos: [
-          ...this.state.todos,
-          {
-            id: Date.now().toString(),
-            text: 'Hello from Udacity',
-            completed: false,
-            priority: Priority.LOW,
-          },
-        ],
-      });
+      handleAddTodo('Hello from Udacity', Priority.LOW);
     }, 1000);
   };
 
-  componentDidMount() {
-    /* to simulate an API call */
-    this.addMockData();
-  }
-  render() {
-    return (
-      <section className='dashboard-page main-page'>
-        <header className='page-header-container'>
-          <h1>Todo List 📌</h1>
-        </header>
+  useEffect(() => {
+    addMockData();
+  }, []);
 
-        <AddTodoForm handleAddTodo={this.handleAddTodo} />
+  return (
+    <section className='dashboard-page main-page'>
+      <header className='page-header-container'>
+        <h1>Todo List 📌</h1>
+      </header>
 
-        <TodoList
-          {...{
-            todos: this.state.todos,
-            toggleTodo: this.toggleTodo,
-            handleDeleteTodo: this.handleDeleteTodo,
-            handleAddTodo: this.handleAddTodo,
-            handleChangePriority: this.handleChangePriority,
-            handleChangeTodoTitle: this.handleChangeTodoTitle,
-          }}
-        />
-      </section>
-    );
-  }
-}
+      <AddTodoForm handleAddTodo={handleAddTodo} />
+
+      <TodoList
+        {...{
+          todos,
+          toggleTodo,
+          handleDeleteTodo,
+          handleAddTodo,
+          handleChangePriority,
+          handleChangeTodoTitle,
+        }}
+      />
+    </section>
+  );
+};
+
+export default TodoPage;

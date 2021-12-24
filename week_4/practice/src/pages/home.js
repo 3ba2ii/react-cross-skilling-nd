@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Home extends Component {
-  render() {
-    return (
-      <main>
-        <h1>Welcome to your home, Stay Udacious 🤘</h1>
-      </main>
-    );
-  }
-}
+const Home = () => {
+  React.useEffect(() => {
+    document.title = 'Home From React';
+  }, []);
+  return (
+    <main>
+      <h1>Welcome to your home, Stsay Udacious 🤘</h1>
+    </main>
+  );
+};
+export default Home;
