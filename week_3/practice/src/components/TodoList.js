@@ -4,7 +4,6 @@ import '../styles/todo.css';
 import TodoItem from './TodoItem';
 export default class TodoList extends Component {
   render() {
-    //[[key,value], [key,value]]
     return (
       <section className='todo-section-container'>
         <div className='todo-lists-container'>
