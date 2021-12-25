@@ -24,7 +24,7 @@ import './styles/layout.css';
 
     3. Week 4
       b. Search for todo functionality 
-      c. Convert the whole project to use React Hooks 🪝
+      c. Convert the whole project to use React Hooks 🪝 ✅
 */
 
 function App() {
