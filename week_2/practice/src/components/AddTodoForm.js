@@ -12,22 +12,19 @@ class AddTodoForm extends React.Component {
   }
 
   handleTextChange = (e) => {
-    this.setState((prevState) => ({
-      ...prevState,
+    this.setState({
       text: e.target.value,
-    }));
+    });
   };
   handlePriorityChange = (e) => {
-    this.setState((prevState) => ({
-      ...prevState,
+    this.setState({
       priority: e.target.value,
-    }));
+    });
   };
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleAddTodo(this.state.text, this.state.priority);
     this.setState({
-      ...this.state,
       text: '',
     });
   };
@@ -39,7 +36,7 @@ class AddTodoForm extends React.Component {
           type='text'
           value={this.state.text}
           onChange={this.handleTextChange}
-          placeholder='Finish project before 27 DEC'
+          placeholder='Finish project before deadline'
           required
         />
         {/* Select Tag */}

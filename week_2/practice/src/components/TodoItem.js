@@ -4,13 +4,6 @@ import '../styles/todo.css';
 import PriorityComponent from './PriorityComponent';
 
 export default class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todoText: '',
-    };
-  }
-
   render() {
     const { id, text, completed, priority } = this.props.todo;
     return (
