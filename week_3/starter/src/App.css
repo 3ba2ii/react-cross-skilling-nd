@@ -1,0 +1,36 @@
+.logo-container {
+  width: 100%;
+  max-width: 80px;
+  margin-bottom: 5rem;
+}
+.logo-container img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+.main-content {
+  width: 100%;
+  height: 100%;
+}
+.main-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6rem 2rem;
+}
+.flex-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.flex-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
