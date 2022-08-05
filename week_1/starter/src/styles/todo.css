@@ -1,0 +1,108 @@
+.todo-section-container {
+  width: 100%;
+}
+
+.todo-lists-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  height: fit-content;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(85, 85, 85, 0.123);
+}
+
+.todo-item-container {
+  width: 100%;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  background: white;
+  border: 1px solid var(--gray-300);
+  box-shadow: 5px 5px 5px -2px rgba(78, 78, 78, 0.1);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-item-container header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-text-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.todo-text {
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.remove-btn {
+  color: var(--red-500);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  padding: 5px 5px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  display: grid;
+  place-content: center;
+}
+
+.remove-btn:hover {
+  background: var(--red-100);
+  color: var(--red-500);
+}
+.todo-icon {
+  font-size: 1.4rem;
+  color: var(--red-600);
+}
+.todo-priority-tag {
+  width: fit-content;
+  padding: 3px 1rem;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 400;
+  box-shadow: 5px 2px 5px rgba(161, 161, 161, 0.178);
+}
+
+.search-input {
+  position: absolute;
+  top: 15px;
+  width: 60%;
+  border-color: white;
+  border-bottom-color: var(--gray-200);
+}
