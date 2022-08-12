@@ -7,26 +7,33 @@ const TodoListItems = [
     id: 1,
     text: 'Learn React',
     completed: false,
+    priority: 'LOW',
   },
   {
     id: 2,
     text: 'Learn JS',
     completed: false,
+    priority: 'MEDIUM',
   },
   {
     id: 3,
     text: 'Learn Anything',
     completed: true,
+    priority: 'HIGH',
   },
 ];
 class TodoList extends Component {
   render() {
     return (
-      <ol className='todo-list-container'>
-        {TodoListItems.map((item) => (
-          <TodoItem todo={item} key={item.id} />
-        ))}
-      </ol>
+      <section className='todo-section-container'>
+        <div className='todo-lists-container'>
+          <ul className='todo-list-container'>
+            {TodoListItems.map((item) => (
+              <TodoItem todo={item} key={item.id} />
+            ))}
+          </ul>
+        </div>
+      </section>
     );
   }
 }

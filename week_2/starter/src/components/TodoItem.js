@@ -1,19 +1,29 @@
 import React from 'react';
-
+import PriorityComponent from './PriorityComponent';
 class TodoItem extends React.Component {
   render() {
-    const { id, text, completed } = this.props.todo;
+    const { id, text, completed, priority } = this.props.todo;
     return (
-      <li>
-        <small>{id}</small>
+      <li className='todo-item-container'>
         <header>
-          <h1>{text}</h1>
+          <div className='header-text-container flex-row'>
+            {!completed ? (
+              <aside>{<PriorityComponent priority={priority} />}</aside>
+            ) : (
+              <span className='todo-icon'>✅</span>
+            )}
+
+            <h2
+              className='todo-text'
+              style={{
+                textDecoration: completed ? 'line-through' : 'none',
+                opacity: completed ? 0.5 : 1,
+              }}
+            >
+              {text}
+            </h2>
+          </div>
         </header>
-        {/* Homework:
-            1. Add a checkbox to the todo item
-            2. The checkbox should be checked if the todo is completed (completed === true)
-        */}
-        <div>{completed.toString()}</div>
       </li>
     );
   }
