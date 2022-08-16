@@ -11,6 +11,8 @@ function App() {
       d. Let user choose the priority of the todo item ✅ (low, medium, high, urgent)
       d. Handle Toggle todo functionality ✅
       e. Handle Delete todo functionality✅
+      f. use a lifecycle method to add mock todos on mounting after 3 seconds
+                -to simulate fetching data from server- (H.W) 
 
     2. Week 3
       a. Divide todos into 4 columns (low, medium, high, urgent) 
