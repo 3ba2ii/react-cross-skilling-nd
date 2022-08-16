@@ -18,10 +18,13 @@ class TodoItem extends React.Component {
               style={{
                 textDecoration: completed ? 'line-through' : 'none',
                 opacity: completed ? 0.5 : 1,
+                cursor: 'pointer',
               }}
+              onClick={() => this.props.toggleTodo(id)}
             >
               {text}
             </h2>
+            <button onClick={() => this.props.deleteTodo(id)}>Delete</button>
           </div>
         </header>
       </li>

@@ -7,17 +7,17 @@ function App() {
   /* 
     Project Road Map
     1. Week 2
-      c. Handle add todo item ✅
-      d. Let user choose the priority of the todo item ✅ (low, medium, high, urgent)
-      d. Handle Toggle todo functionality ✅
-      e. Handle Delete todo functionality✅
+      a. Handle add todo item 
+      b. Handle Toggle todo functionality 
+      c. Handle Delete todo functionality
+      d. Let user choose the priority of the todo item (low, medium, high, urgent) (H.w)
       f. use a lifecycle method to add mock todos on mounting after 3 seconds
                 -to simulate fetching data from server- (H.W) 
 
     2. Week 3
       a. Divide todos into 4 columns (low, medium, high, urgent) 
-      b. Handle changing todo item's priority 
-      c. Handle edit todo text functionality 
+      b. Handle changing todo item's priority
+      c. Handle edit todo text functionality
 
     3. Week 4
       b. Search for todo functionality 
@@ -29,6 +29,7 @@ function App() {
       <section className='side-navbar-section'>
         <LogoComponent />
       </section>
+
       <TodoPage />
     </main>
   );
