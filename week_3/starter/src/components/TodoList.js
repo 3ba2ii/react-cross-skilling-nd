@@ -1,21 +1,36 @@
-import React, { Component } from 'react';
+import Priority from '../constants/priority';
 import '../styles/todo.css';
 import TodoItem from './TodoItem';
-export default class TodoList extends Component {
-  render() {
-    return (
-      <section className='todo-section-container'>
-        <ul className='flex-column'>
-          {this.props.todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              toggleTodo={this.props.toggleTodo}
-              handleDeleteTodo={this.props.handleDeleteTodo}
-            />
-          ))}
-        </ul>
-      </section>
-    );
-  }
-}
+
+const TodoList = ({
+  setTodos,
+  todos,
+  toggleTodo,
+  handleDeleteTodo,
+  editTodoTitle,
+}) => {
+  return (
+    <section className='todo-section-container'>
+      <div className='todo-lists-container'>
+        {Object.keys(Priority).map((priority) => (
+          <ul key={priority} className='todo-list-container'>
+            <h4>{priority}</h4>
+            {todos
+              .filter((todo) => todo.priority === priority)
+              .map((todo) => (
+                <TodoItem
+                  key={todo.id}
+                  todo={todo}
+                  toggleTodo={toggleTodo}
+                  handleDeleteTodo={handleDeleteTodo}
+                  editTodoTitle={editTodoTitle}
+                />
+              ))}
+          </ul>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default TodoList;

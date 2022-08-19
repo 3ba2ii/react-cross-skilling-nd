@@ -16,12 +16,12 @@ import './styles/layout.css';
 
     2. Week 3
       a. Divide todos into 4 columns (low, medium, high, urgent) 
-      b. Handle changing todo item's priority 
-      c. Handle edit todo text functionality 
-
-    3. Week 4
-      b. Search for todo functionality 
+      b. Handle edit todo text functionality 
       c. Convert the whole project to use React Hooks 🪝
+      
+    3. Week 4
+      a. Handle changing todo item's priority
+      b. Search for todo functionality 
 */
 
 function App() {

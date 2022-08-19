@@ -1,84 +1,78 @@
-import React, { Component } from 'react';
+import { useEffect, useState } from 'react';
 import AddTodoForm from '../components/AddTodoForm';
 import TodoList from '../components/TodoList';
 import Priority from '../constants/priority';
 import '../styles/todo-page.css';
 
-export default class TodoPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [],
-    };
-  }
-  handleAddTodo = (text, priority) => {
-    this.setState({
-      todos: [
-        ...this.state.todos,
-        {
-          id: Date.now().toString(),
-          text,
-          priority,
-          completed: false,
-        },
-      ],
-    });
+const TodoPage = () => {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = (text, priority) => {
+    setTodos([
+      ...todos,
+      {
+        id: Date.now().toString(),
+        text,
+        priority,
+        completed: false,
+      },
+    ]);
   };
-  toggleTodo = (id) => {
-    const newTodos = this.state.todos.map((todo) => {
+
+  const toggleTodo = (id) => {
+    const newTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
       return todo;
     });
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
 
-  handleDeleteTodo = (id) => {
-    const newTodos = this.state.todos.filter((todo) => todo.id !== id);
-    this.setState({ todos: newTodos });
+  const handleDeleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
   };
-
-  addMockData = () => {
+  const addMockData = () => {
     setTimeout(() => {
-      this.setState({
-        todos: [
-          ...this.state.todos,
-          {
-            id: Date.now().toString(),
-            text: 'Hello from Udacity',
-            completed: false,
-            priority: Priority.LOW,
-          },
-        ],
-      });
+      handleAddTodo('Hello from react', Priority.LOW);
     }, 1000);
   };
 
-  componentDidMount() {
-    /* to simulate an API call */
-    this.addMockData();
-  }
-  render() {
-    return (
-      <section className='dashboard-page main-page'>
-        <header className='page-header-container'>
-          <h1>Todo List 📌</h1>
-        </header>
+  const editTodoTitle = (id, newTitle) => {
+    const newTodos = todos.map((t) => {
+      if (t.id === id) {
+        t.text = newTitle;
+      }
+      return t;
+    });
+    setTodos(newTodos);
+  };
 
-        <AddTodoForm handleAddTodo={this.handleAddTodo} />
+  useEffect(() => {
+    addMockData();
+  }, []);
 
-        <TodoList
-          {...{
-            todos: this.state.todos,
-            toggleTodo: this.toggleTodo,
-            handleDeleteTodo: this.handleDeleteTodo,
-            handleAddTodo: this.handleAddTodo,
-          }}
-        />
-      </section>
-    );
-  }
-}
+  return (
+    <section className='dashboard-page main-page'>
+      <header className='page-header-container'>
+        <h1>Todo List 📌</h1>
+      </header>
+      <button>Show completed todos</button>
+
+      <AddTodoForm handleAddTodo={handleAddTodo} />
+
+      <TodoList
+        {...{
+          todos,
+          toggleTodo,
+          handleDeleteTodo,
+          handleAddTodo,
+          editTodoTitle,
+        }}
+      />
+    </section>
+  );
+};
+
+export default TodoPage;
