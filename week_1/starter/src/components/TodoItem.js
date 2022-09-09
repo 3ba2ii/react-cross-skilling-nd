@@ -1,4 +1,5 @@
 import React from 'react';
+import Priority from "./Priority";
 
 class TodoItem extends React.Component {
   render() {
@@ -6,15 +7,7 @@ class TodoItem extends React.Component {
     return (
       <li className='todo-item-container'>
         <span style={{textDecoration: completed?"line-through":"none",}}>
-          <div style={{
-            width: 13,
-            height: 13,
-            borderRadius: 10,
-            display: "inline-block",
-            marginRight: 10,
-            background: (priority === "LOW" ? "yellow" : (priority === "MEDIUM" ? "orange" : "red"))
-          }}>
-          </div>
+          <Priority priority={priority}/>
           {text}
         </span>
       </li>
