@@ -15,6 +15,7 @@ class TodoList extends Component {
                 key={item.id}
                 toggleTodo={this.props.toggleTodo}
                 deleteTodo={this.props.deleteTodo}
+                changePriority={this.props.changePriority}
               />
             ))}
           </ul>

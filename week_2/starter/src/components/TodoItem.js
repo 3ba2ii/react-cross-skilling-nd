@@ -1,14 +1,16 @@
 import React from 'react';
 import PriorityComponent from './PriorityComponent';
+import PrioritySelectComponent from "./PrioritySelectComponent";
+
 class TodoItem extends React.Component {
   render() {
-    const { id, text, completed, priority } = this.props.todo;
+    const {id, text, completed, priority} = this.props.todo;
     return (
       <li className='todo-item-container'>
         <header>
           <div className='header-text-container flex-row'>
             {!completed ? (
-              <aside>{<PriorityComponent priority={priority} />}</aside>
+              <aside>{<PriorityComponent priority={priority}/>}</aside>
             ) : (
               <span className='todo-icon'>✅</span>
             )}
@@ -25,10 +27,12 @@ class TodoItem extends React.Component {
               {text}
             </h2>
             <button onClick={() => this.props.deleteTodo(id)}>Delete</button>
+            <PrioritySelectComponent id={id} priority={priority} changePriority={this.props.changePriority}/>
           </div>
         </header>
       </li>
     );
   }
 }
+
 export default TodoItem;
